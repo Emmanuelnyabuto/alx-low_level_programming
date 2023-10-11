@@ -51,7 +51,6 @@ All of the following files are programs written in C:
 | `11-print_to_98.c` | Prints all natural numbers from `n` to `98` |
 		
 | `100-times_table.c` | Prints the `n` times table, starting with 0 |
-		
 | `101-natural.c` | Computes and prints the sum of all the multiplies of `3` or `5` below `1024` |
 		
 | `102-fibonacci.c` | Prints the first 50 Fibonacci numbers, starting with `1` and `2` |
