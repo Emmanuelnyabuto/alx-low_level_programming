@@ -1,9 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
-
 
 /**
-* main - multiplies two numbers.
+* main - prints all arguments it receives.
 * @argc: argument count
 * @argv: arguments
 *
@@ -11,19 +9,11 @@
 */
 int main(int argc, char **argv)
 {
-int x, y;
+int i;
 
 
-if (argc < 3)
-{
-printf("Error\n");
-return (1);
-}
-
-
-x = atoi(argv[1]);
-y = atoi(argv[2]);
-printf("%d\n", x * y);
+for (i = 0; i < argc; i++)
+printf("%s\n", argv[i]);
 
 
 return (0);
