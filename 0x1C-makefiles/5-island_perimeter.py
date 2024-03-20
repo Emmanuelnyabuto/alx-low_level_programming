@@ -1,29 +1,29 @@
 #!/usr/bin/python3
-"""Defines an island perimeter measuring function."""
+"""
+Function that returns the perimeter of an island described in a grid.
 
+Args:
+    grid: list of list of integers where 0 represents water and 1 represents land.
 
+Returns:
+    int: the perimeter of the island.
+
+Raises:
+    ValueError: if the grid is not rectangular or if it's not completely surrounded by water.
+
+"""
 def island_perimeter(grid):
-    """Return the perimiter of an island.
+    # Check if the grid is rectangular and completely surrounded by water
+    if not all(len(row) == len(grid[0]) for row in grid) or grid[0][0] != 0 or grid[-1][-1] != 0:
+        raise ValueError("The grid is not rectangular or not completely surrounded by water.")
 
-    The grid represents water by 0 and land by 1.
-
-    Args:
-        grid (list): A list of list of integers representing an island.
-    Returns:
-        The perimeter of the island defined in grid.
-    """
-    width = len(grid[0])
-    height = len(grid)
-    edges = 0
-    size = 0
-
-    for i in range(height):
-        for j in range(width):
-            if grid[i][j] == 1:
-                size += 1
-                if (j > 0 and grid[i][j - 1] == 1):
-                    edges += 1
-                if (i > 0 and grid[i - 1][j] == 1):
-                    edges += 1
-    return size * 4 - edges * 2
-
+    perimeter = 0
+    for i, row in enumerate(grid):
+        for j, cell in enumerate(row):
+            if cell == 1:  # land cell
+                perimeter += 4
+                if i > 0 and grid[i-1][j] == 1:
+                    perimeter -= 2
+                if j > 0 and grid[i][j-1] == 1:
+                    perimeter -= 2
+    return perimeter
